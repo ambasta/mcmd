@@ -1,4 +1,3 @@
-import time
 from gi.repository import Gst
 
 
@@ -29,5 +28,8 @@ class CamCapture:
 
     def capture(self):
         self.player.set_state(Gst.State.PLAYING)
-        time.sleep(1)
-        self.player.set_state(Gst.State.NULL)
+        msg = self.player.bus.timed_pop_filtered(
+            Gst.CLOCK_TIME_NONE,
+            Gst.MessageType.EOS | Gst.MessageType.ERROR)
+        if msg:
+            self.player.set_state(Gst.State.NULL)
