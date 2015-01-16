@@ -29,7 +29,10 @@ class CamCapture:
     def capture(self):
         self.player.set_state(Gst.State.PLAYING)
         msg = self.player.bus.timed_pop_filtered(
-            Gst.CLOCK_TIME_NONE,
+            5 * Gst.SECOND,
             Gst.MessageType.EOS | Gst.MessageType.ERROR)
-        if msg:
+
+        if msg.type == Gst.MessageType.EOS:
             self.player.set_state(Gst.State.NULL)
+        else:
+            raise('Error occurred. Message type: {}'.format(msg.type))

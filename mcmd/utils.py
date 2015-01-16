@@ -1,3 +1,5 @@
+from .config import BRIGHTNESS_S
+
 def get_display_brightness(ambient_brightness):
     '''
     Calculate the optimal display brightness given ambient brightness
@@ -8,6 +10,6 @@ def get_display_brightness(ambient_brightness):
     as a logrithamic curve
     '''
     ambient_brightness = float(ambient_brightness)
-    display_brightness = ambient_brightness / 2.55
+    display_brightness = ambient_brightness / BRIGHTNESS_S
 
     return display_brightness
