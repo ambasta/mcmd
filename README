@@ -2,3 +2,20 @@ MCMD
 =================================
 Monkey See Monkey Do is a gnome extension to set the display brightness
 based on ambient light detected by the camera sensor.
+
+Status & Dependencies
+===============================================
+Currently MCMD requires python-dbus, gst-python and gi.repository to work. Also, current DE support is limited to gnome. A full fledged gnome-shell extension is set to be released soon.
+I plan to support other DEs at a later date.
+
+Installation
+===============================================
+Currently the project works as a standalone python application. No installation is required
+
+git clone git@github.com:ambasta/mcmd.git
+python mcmd &
+
+
+Bugs & Reports
+===============================================
+You an file any issues or bugs you face against the github issue tracker @ https://github.com/ambasta/mcmd/issues
